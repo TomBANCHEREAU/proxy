@@ -322,6 +322,7 @@ function onconnect(req, socket, head) {
 	// define request socket event listeners
 	socket.on('close', function onclientclose() {
 		debug.request('HTTP request %s socket "close" event', req.url);
+		target?.destroy();
 	});
 
 	socket.on('end', function onclientend() {
